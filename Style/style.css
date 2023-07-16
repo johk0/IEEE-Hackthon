@@ -165,7 +165,7 @@ nav .links .contact-btn {
 }
 
 nav .links .contact-btn:hover {
-	background-color: #000;
+	background-color: #004D80;
 
 }
 
@@ -173,19 +173,6 @@ nav .links .contact-btn:hover {
 	color: #f5f5f5;
 	text-decoration: none;
 }
-@media(max-width:750px){
-	.links{
-		visibility: hidden;
-	}
-}
-
-
-
-
-
-
-/* end nav  */
-/* start video ann text  */
 .text-container {
 	position: absolute;
 	top: 40%;
@@ -216,32 +203,268 @@ nav .links .contact-btn:hover {
 	object-fit: cover;
 
 }
-/* stert service  */
-.serv{
-	margin-top: 70px;
+@media(max-width:750px){
+	.links{
+		visibility: hidden;
+	}
 }
-.service-head{
+/* end main  */
+/* start servvice */
+#service{position: relative;
+height: 143vh;
+}
+.service-text{
 	display: flex;
-	justify-content: center;
-	position: relative;
+	align-items: center;
+	flex-direction: column;
+
+	margin-top: 50px;
 }
-svg{
+
+.service-text h2{
+	margin-bottom: 50px;
+	font-weight: 600;
+	font-size: 32px;
+}
+.corner{
 	position: absolute;
-	top: -100%;
-	left: 58%;
+	top: -7%;
+    left: 50%;
 }
-.service-head h2{
-	font-size: 40px;
+.service-text h2::after{
+	content: "";
+	width: 130px;
+	height: 2px;
+	background: #004D80;
+	display: block;
+	top: 60px;
+	position: absolute;
+}
+.service-text p{
+	width: 288px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 75px;
+}
+.cards{
+	display: grid;
+	gap: 35px;
+	row-gap: 100px;
+	grid-template-columns: repeat(3,auto);
+	grid-template-rows: repeat(3,auto);
+	grid-template-areas: 
+	"one two three"
+	"four five six"
+	"seven eight nine"
+	;
+	
+}
+.cards div{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+.cards>div{
+	transition: ease 0.7s;
+	padding-top: 25px;
+}
+.one{
+	grid-area: one;
+}
+.two{
+	grid-area: two;
+}
+.three{
+	grid-area: three;
+}
+.four{
+	grid-area: four;
+}
+.five{
+	grid-area: five;
+}
+.six{
+	grid-area: six;
+}
+.seven{
+	grid-area: seven;
+}
+.eight{
+	 grid-area:eight ;
+}
+.nine{
+	grid-area: nine;
+}
+.pic{
+position: relative;
+	height: 85px;
+	margin-bottom: 20px;
+}
+.cards div svg{
+
+	margin-bottom: 25px;
+}
+
+.cards div .pic::after{
+position: absolute;
+content: "";
+z-index: -1;
+background-color: #ddd;
+border-radius: 50%;
+top: -10px;
+width: 90px;
+height: 90px;
+}
+.cards div h3{
+	margin-bottom: 25px;
 	position: relative;
 }
-.service-head h2::after{
+.cards div h3::after{
 	content: "";
 	position: absolute;
-	width: 100%;
-	height: 1px;
-	background-color: #1787e0;
-	top: 60px;
-left: 3px;}
+width: 140px;
+height: 2px;
+background-color: #004D80;
+top: 35px;
+left: 0;
+transition: ease 0.7s;
+}
+div.jk h3::after{
+	width: 165px;
+}
+div.jm h3::after{
+	width: 127px;
+}
+div.jk:nth-child(2) h3::before{
+	content: "5G";
+	color: #D1160A;
+	right: -30px;
+	position: absolute;
+	transition: ease 0.7s;
+}
+
+div.iio h3::after{
+	background-color: #D1160A;
+}
+div.oo2 h3::after{
+	background-color: #229C3D;
+}
+
+.cards>.th1:hover{background-color: #004D80;
+	color: #f5f5f5;
+
+}
+div.iio:hover{
+	background-color: #D1160A;
+	color: #f5f5f5;
+
+}
+div.oo2:hover{
+	background-color: #229C3D;
+	color: #f5f5f5;
+}
+
+.cards>div:hover  h3::after{
+	background-color: #f5f5f5;
+}
+.cards>div:hover  h3::before{
+	color: #f5f5f5;
+}
+.cards>div:nth-child(5){
+	position: relative;
+	overflow: hidden;
+}
+.cards>div:nth-child(5)::before{
+	content: "";
+	visibility: hidden;
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	background-color: #004D80;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 40%;
+	z-index: -1;
+	
+}
+.cards .five:hover::before{
+	animation: fill 7s ease-in-out infinite;
+	visibility: visible;
+}
+
+@keyframes fill{
+	from {
+		top: 250px;
+		transform: translateX(-50%);rotate:(0deg);
+	}
+	to {top: -50px;
+		transform: translateX(-50%);rotate:(360deg);
+	}
+}
+
+@media(max-width:750px){
+	.container{
+		width: 720px;
+	}
+	#service{
+		height: fit-content;
+		width: fit-content;
+	display: grid;
+	place-items: center;
+	}
+	.service-text{
+		width: 430px;
+		
+	}
+	.cards{
+		grid-template-rows: repeat(9,auto);
+		grid-template-columns: repeat(1,auto);
+	
+	grid-template-areas: "one"
+	"two"
+	"three"
+	"four"
+	"five"
+	"six"
+	"seven"
+	"eight"
+	"nine";
+}
+.cards>div{
+	width: 350px;
+	margin-left: -40px;
+}
+.corner{
+	top:-0%;
+	left: 50%;
+}
+.service-text h2::after{
+	top: 100px;
+}
+
+
+}
+
+
+
+
+/* end service  */
+
+
+
+
+
+
+
+
+
+
+
+/* end nav  */
+/* start video ann text  */
+
+/* stert service  */
 
 
 
