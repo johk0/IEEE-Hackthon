@@ -1,13 +1,19 @@
 /* Start Global Rule  */
 :root {
-	--main-color: #2196f3;
-	--main-color-alt: #1787e0;
-	--second-color: #ececec;
+	--main-color: #004d80;
+	/* --main-color-alt: #1787e0; */
+	/* --second-color: #ececec; */
+	--btn-color: #ff6f61;
+	--background-color: #f5f5f5;
+	--big-radius: 15px;
+	--small-radius: 10px;
 }
 
 body {
 	font-family: "Cairo", sans-serif;
 	height: 600vh;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 html {
@@ -36,10 +42,6 @@ video {
 	height: 100%;
 }
 
-.parent {
-	overflow-x: hidden;
-}
-
 .container {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -57,7 +59,7 @@ video {
 .title h2 {
 	position: relative;
 	padding-bottom: 10px;
-	font-size: 60px;
+	font-size: 70px;
 }
 .title p {
 	padding-top: 20px;
@@ -75,22 +77,11 @@ video {
 	background-color: var(--main-color);
 }
 
-.title + .corner {
+.title + .corner svg {
 	position: absolute;
-	transform: translate(60%, 50%);
+	top: -2%;
+	right: 30%;
 }
-
-@media (max-width: 768px) {
-	.title + .corner {
-		transform: translate(60%, -20%);
-	}
-}
-@media (max-width: 500px) {
-	.title + .corner {
-		transform: translate(40%, -30%);
-	}
-}
-
 section {
 	padding-top: 150px !important;
 	padding-top: 50px;
@@ -100,12 +91,6 @@ section {
 @media (max-width: 768px) {
 	.container {
 		width: 750px;
-	}
-}
-/* Very Small */
-@media (max-width: 500px) {
-	.container {
-		width: 450px;
 	}
 }
 
@@ -126,6 +111,9 @@ section {
 /* End Global Rule  */
 /* start main page style  */
 /* start nav  */
+.parent .container {
+	height: calc(100vh - 32px);
+}
 nav {
 	display: flex;
 	justify-content: space-between;
@@ -223,16 +211,30 @@ nav .links .contact-btn:hover {
 }
 .text-container {
 	position: absolute;
-	top: 40%;
+	top: 50%;
+	transform: translate(0, -50%);
 }
 
 .text-container h2 {
 	font-size: 50px;
+	color: white;
+}
+.text-container h2 span {
+	color: var(--btn-color);
 }
 
 .text-container p {
 	width: 300px;
+	padding: 20px;
 	margin-top: 10px;
+	border-radius: 10px;
+	color: white;
+}
+
+.text-container .text {
+	backdrop-filter: blur(5px) saturate(70%);
+	width: min-content;
+	margin: 0 auto;
 }
 
 .video-bck {
@@ -244,7 +246,7 @@ nav .links .contact-btn:hover {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	background-color: var(--main-color);
+	background-color: #ddd;
 }
 @media (max-width: 750px) {
 	.links {
@@ -252,50 +254,9 @@ nav .links .contact-btn:hover {
 	}
 }
 /* end main  */
-/* start servvice */
-#service {
-	position: relative;
-	height: 143vh;
-}
-.service-text {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
 
-	margin-top: 50px;
-}
+/* start service */
 
-.service-text h2 {
-	margin-bottom: 50px;
-	font-weight: 600;
-	font-size: 32px;
-}
-.corner {
-	position: absolute;
-	top: -7%;
-	left: 50%;
-}
-.service-text h2::after {
-	content: "";
-	width: 130px;
-	height: 2px;
-	background: #004d80;
-	display: block;
-	top: 60px;
-	position: absolute;
-}
-.text-container p {
-	width: 300px;
-	padding: 20px;
-	margin-top: 10px;
-	border-radius: 10px;
-	color: white;
-}
-
-.text-container .text {
-	backdrop-filter: blur(5px) saturate(70%);
-	margin: 0 auto;
-}
 .cards {
 	display: grid;
 	gap: 35px;
@@ -348,6 +309,7 @@ nav .links .contact-btn:hover {
 	height: 85px;
 	margin-bottom: 20px;
 }
+
 .cards div svg {
 	margin-bottom: 25px;
 }
@@ -418,7 +380,7 @@ div.oo2:hover {
 }
 .cards > div:nth-child(5) {
 	position: relative;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 .cards > div:nth-child(5)::before {
 	content: "";
@@ -451,12 +413,6 @@ div.oo2:hover {
 }
 
 @media (max-width: 750px) {
-	#service {
-		height: fit-content;
-		width: fit-content;
-		display: grid;
-		place-items: center;
-	}
 	.service-text {
 		width: 430px;
 	}
@@ -478,14 +434,6 @@ div.oo2:hover {
 	.cards > div {
 		width: 350px;
 		margin-left: -40px;
-		margin: 0 auto;
-	}
-	.corner {
-		top: -0%;
-		left: 50%;
-	}
-	.service-text h2::after {
-		top: 100px;
 	}
 }
 
