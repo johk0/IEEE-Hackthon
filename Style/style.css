@@ -955,6 +955,7 @@ border-radius: 12px;
 	background-color: #ddd;
 	z-index: -1;
     position: relative;
+	height: 135vh;
 }
 #pricing::before{
 	content: "";
@@ -1055,7 +1056,7 @@ left: -5px;
 			width: 80%;
 			height: 30px;
 			border-radius: 8px;
-			bottom: -100px;
+			bottom: -90px;
 			left: 10%;
 			position: absolute;
 			border-style: none;
@@ -1063,7 +1064,7 @@ left: -5px;
 			transition: ease 0.7s;
 		 }
 		 .o2 .pricing-btn{
-			bottom: -107px;
+			bottom: -94px;
 		 }
 		 .advantages .gr{
 			position: absolute;
@@ -1077,7 +1078,7 @@ left: -5px;
 		 }
 	
 		.o3 .advantages .pricing-btn{
-			bottom: -50px;
+			bottom: -42px;
 			 margin-top: 10px;
 			
 		}
@@ -1091,7 +1092,22 @@ left: -5px;
 			background-color: #229c3d;
 			color: #f5f5f5;
 		}
+		@media(max-width:990px){
+			#pricing{
+				height: 190vh;
+			}
+			.subs >div:nth-child(2){height: 85%;
+			}
+			.subs >div:nth-child(3){
+				margin-top: 30px
+			}
+			.subs>div .pricing-btn{
+				bottom: -65px;
+			}
+		}
 		@media(max-width:900px){
+            
+
 			.subs >div:nth-child(2){
 				margin-right: 10px;
 				margin-left: 10px;
@@ -1101,7 +1117,7 @@ left: -5px;
 				bottom: -75px;
 			}
 			#pricing{
-				height: 175vh;
+				height: 185vh;
 			}
 			.subs>div:nth-child(3){
 				margin-top: 40px;
@@ -1118,7 +1134,7 @@ left: -5px;
 	margin-bottom: 40px;
 }
 #pricing {
-    height: 234vh;
+    height: 237vh;
     margin-top: -175px;
 }
 #pricing .corner {
@@ -1136,8 +1152,9 @@ left: -5px;
 /* end pricing */
 /* start about */
 #about-us{
-	height: 100vh;
+	height: 110vh;
 	background-color: #f5f5f5;
+	margin-top: 50px;
 }
 #about-us .title h2::before{
 	background-color: #FF6F61;
@@ -1192,7 +1209,7 @@ background-color: #FF6F61;
 	display: flex;
 	justify-content: space-around;
 	align-content: space-between;
-	width: 30%;
+	width: 290px;
 	flex-wrap: wrap;
 }
 .boxes>div{
@@ -1225,13 +1242,87 @@ background: #FFF;
 
 box-shadow: 10px 10px 26px -3px rgba(0, 0, 0, 0.25);
 }
+@media(max-width:990px){
+	#about-us{
+		margin-top: 370px;
+		height:120vh ;
+	}
+	.text-about::before{
+		right: -13%;
+	}
+	.text-about {line-height: 30px;}
+	.text-about p {font-size: 18px}
+}
 @media(max-width:900px){
 	#about-us .corner{
-		top: -20%;
+		top: -18%;
 		left: 50%;
-		
+	}
+	#about-us{
+		margin-top: 0;
+	}
+}
+@media(max-width:760px)
+{
+	.text-about button {
+		bottom: -25%;}
+}
+@media(max-width:670px)
+{.text-about button {
+	bottom: -37%;}
+}
+@media(max-width:600px){
+	#pricing{
+		height: 244vh;
+	}
+	#about-us{
+		height: 160vh;
+		margin-top: 0px;
+	}
+	.info{
+		flex-wrap: nowrap;
+		flex-direction: column;
+		align-items: center;
+	}
+	.text-about::before {
+		display: none;
+}
+.text-about::after{
+	content: "";
+	position: absolute;
+	background-color: #ddd;
+	width: 100%;
+	height: 2px;
+	top: 151%;
+    right: 6%;
+}
+.text-about{
+	margin-bottom: 120px;
+}
+.text-about {
+    line-height: 26px;
+}
+#about-us .corner {
+    top: -11%;}
+}
+@media (max-width: 520px){
+ .text-about p {
+    font-size: 17px;
+}}
+@media (max-width: 502px){
+	.text-about{
+		width: 50%;
 	}
 
+}
+@media (max-width: 502px){
+	.text-about p {
+		font-size: 16px;
+	}
+	#about-us .corner {
+		top: -1%;
+		left: 56%;
+	}
 }
 
 
