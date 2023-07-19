@@ -12,8 +12,9 @@
 body {
 	font-family: "Cairo", sans-serif;
 	height: 600vh;
-	width: 100%;
-	overflow-x: hidden;
+	max-width: 100%;
+
+	/* overflow-x: hidden; */
 }
 
 html {
@@ -42,6 +43,10 @@ video {
 	height: 100%;
 }
 
+.parent {
+	overflow-x: visible;
+}
+
 .container {
 	padding-left: 15px;
 	padding-right: 15px;
@@ -59,7 +64,7 @@ video {
 .title h2 {
 	position: relative;
 	padding-bottom: 10px;
-	font-size: 70px;
+	font-size: 60px;
 }
 .title p {
 	padding-top: 20px;
@@ -76,64 +81,155 @@ video {
 	bottom: 0;
 	background-color: var(--main-color);
 }
-
-.title + .corner svg {
-	position: absolute;
-	top: -2%;
-	right: 30%;
+@media (max-width: 500px) {
+	.title h2 {
+		position: relative;
+		padding-bottom: 10px;
+		font-size: 40px;
+	}
 }
+
+.title + .corner {
+	position: absolute;
+	transform: translate(60%, 50%);
+}
+@media (max-width: 500px) {
+	.title + .corner {
+		position: absolute;
+		transform: translate(70%, 50%);
+		width: 10px;
+	}
+	.title + .corner svg {
+		width: 70px;
+		transform: translate(40%, 0%);
+	}
+}
+
+@media (max-width: 768px) {
+	.serv .title + .corner {
+		transform: translate(60%, 20%);
+	}
+}
+@media (max-width: 500px) {
+	.title + .corner {
+		transform: translate(40%, -30%);
+	}
+}
+
 section {
 	padding-top: 150px !important;
 	padding-top: 50px;
 }
 
-/* Small */
+/* Very Small  */
 @media (max-width: 768px) {
+	.container {
+		width: 400px;
+		width: calc(100% - 30px);
+	}
+	.links {
+		display: none;
+	}
+}
+/* Small  */
+@media (min-width: 768px) {
 	.container {
 		width: 750px;
 	}
 }
-
 /* Medium */
 @media (min-width: 992px) {
 	.container {
 		width: 970px;
 	}
 }
-
-/* Large */
+/* Large  */
 @media (min-width: 1200px) {
 	.container {
 		width: 1170px;
 	}
 }
-
 /* End Global Rule  */
 /* start main page style  */
 /* start nav  */
-.parent .container {
-	height: calc(100vh - 32px);
-}
 nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 20px;
-	position: relative;
+	max-width: 100%;
+	background-color: red;
 }
-
-nav::after {
+/* @media (max-width: 768px) {
+	nav {
+		width: 500px;
+	}
+} */
+/* menu bar  */
+.bar-container .bar-parent {
+	width: 300px;
+	height: 500px;
+	position: absolute;
+	overflow: hidden;
+	transform: translate(-200px, 0px);
+}
+.bar-container #bar {
+	transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
+}
+.bar-container #bar ul {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	backdrop-filter: blur(5px) saturate(70%);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+}
+.bar-container #bar ul li {
+	padding: 10px 20px;
+	padding-right: 60px;
+}
+.bar-container .menu-bar {
+	cursor: pointer;
+	padding-right: 10px;
+}
+.bar-container .menu-bar div {
+	background-color: white;
+	width: 40px;
+	height: 4px;
+	border-radius: 5px;
+}
+.bar-container .menu-bar .bar1,
+.bar-container .menu-bar .bar2 {
+	margin-bottom: 8px;
+}
+/* nav::after {
 	content: "";
 	position: absolute;
-	height: 2px;
+	height: 1px;
 	width: 100%;
 	background-color: #ddd;
 	top: 150%;
+} */
+/* menu bar  */
+nav {
+	border-bottom: 1px #ddd solid;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	filter: brightness(100%);
+	position: relative;
+	flex: 1;
+	display: flex;
+	align-items: center;
 }
-
 nav .logo {
 	font-size: large;
 	font-weight: bold;
+	margin-bottom: 5px;
+	color: white;
 }
 
 nav .links {
@@ -141,99 +237,117 @@ nav .links {
 	justify-content: space-around;
 }
 
-nav ul {
+#bar {
+	display: flex;
+	flex-direction: row;
+	transform: translate(-300px, 0);
+}
+nav .links > ul {
 	display: flex;
 	justify-content: space-around;
 	position: relative;
 	margin-right: 5px;
+	margin-left: 5px;
 	margin-top: 3px;
 	padding-right: 5px;
+	padding-left: 5px;
 }
 
-nav ul::after {
+nav .contact-btn::before {
 	content: "";
 	position: absolute;
-	height: 22px;
-	width: 2px;
+	height: 80%;
+	width: 3px;
 	background-color: #000;
-	top: 0;
-	right: 0;
+	top: 8%;
+	right: 130px;
+	border-radius: 50px;
 }
 
-nav ul li {
+nav .links > ul li {
 	margin-left: 10px;
 	margin-right: 10px;
 	position: relative;
 }
 
-nav ul li::after {
+nav .links > ul li::after {
 	content: "";
 	position: absolute;
-	height: 2px;
-	width: 80px;
+	height: 1px;
+	width: 100%;
 	background-color: #ddd;
-	top: 35px;
+	bottom: -9px;
 	left: 0px;
 	z-index: 1;
 }
 
 nav ul li:hover a {
-	color: #1787e0;
+	color: var(--btn-color);
 }
 
 nav ul li:hover::after {
-	background-color: #1787e0;
+	background-color: var(--btn-color);
 }
-
+nav ul li {
+	padding-bottom: 5px;
+}
 nav ul li a {
 	text-decoration: none;
-	color: #000;
-}
-
-nav .links .contact-btn {
-	height: 25px;
-	width: 130px;
-	background-color: #1787e0;
-	border-radius: 9px;
-	border-style: none;
-	display: grid;
-	place-items: center;
+	color: #ffffff;
 	transition: ease 0.7s;
 }
-
+nav .links {
+	/* display: flex; */
+	align-items: center;
+}
+nav .links .contact-btn {
+	/* height: 25px;
+	width: 130px; */
+	background-color: var(--main-color);
+	border-radius: var(--small-radius);
+	border-style: none;
+	/*display: grid;
+	place-items: center; */
+	padding: 10px;
+	margin-bottom: 5px;
+	transition: ease 0.7s;
+	margin-left: 18px;
+}
 nav .links .contact-btn:hover {
-	background-color: #004d80;
+	background-color: var(--btn-color);
 }
 
 .contact-btn a {
 	color: #f5f5f5;
 	text-decoration: none;
+	padding: 10px;
 }
 .text-container {
 	position: absolute;
-	top: 50%;
-	transform: translate(0, -50%);
+	top: 40%;
 }
 
 .text-container h2 {
-	font-size: 50px;
+	text-transform: uppercase;
 	color: white;
+	padding-left: 20px;
+	font-size: 50px;
 }
 .text-container h2 span {
-	color: var(--btn-color);
+	color: var(--main-color);
 }
-
 .text-container p {
 	width: 300px;
 	padding: 20px;
 	margin-top: 10px;
 	border-radius: 10px;
 	color: white;
+	width: 300px;
+	margin-top: 10px;
 }
 
 .text-container .text {
 	backdrop-filter: blur(5px) saturate(70%);
-	width: min-content;
 	margin: 0 auto;
 }
 
@@ -246,13 +360,26 @@ nav .links .contact-btn:hover {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	background-color: #ddd;
+	background-color: #4e4848;
 }
-@media (max-width: 750px) {
-	.links {
+@media (max-width: 768px) {
+	.links > ul:first-child {
 		visibility: hidden;
 	}
 }
+/* end main  */
+/* start service */
+.serv {
+	background-color: #ddd;
+}
+#service {
+	position: relative;
+	height: 143vh;
+	background-color: #ddd;
+}
+@media (max-width: 500px) {
+	#service .title + .corner svg {
+	
 /* end main  */
 
 /* start service */

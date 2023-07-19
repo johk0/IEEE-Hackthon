@@ -28,12 +28,13 @@
 
 // document.getElementById("ppp").classList.remove("text");
 // document.getElementById("ppp").classList.toggle("text");
+// document.getElementById("ppp").classList.add("text");
 
 // add and remove class
 
 // menu bar
-let totalBars = document.querySelectorAll(".menu-bar");
-let totalLists = document.querySelectorAll(".bar");
+let totalBars = document.querySelectorAll(".bar-container .menu-bar div");
+let x = document.querySelectorAll(".bar");
 
 let changeMenuIcon = function () {
 	let a;
@@ -43,8 +44,16 @@ let changeMenuIcon = function () {
 	console.log(a);
 	if (a == true) {
 		document.getElementById("bar").style.transform = "translate(50px, 0)";
+		x.forEach(function (ele) {
+			ele.onclick = function () {
+				x.forEach(function (ele2) {
+					ele2.classList.remove("active");
+				});
+				this.classList.add("active");
+			};
+		});
 	} else {
-		document.getElementById("bar").style.transform = "translate(-150px, 0)";
+		document.getElementById("bar").style.transform = "translate(-300px, 0)";
 	}
 };
 // menu bar
